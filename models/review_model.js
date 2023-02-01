@@ -10,7 +10,7 @@ const reviewSchema = new mongoose.Schema({
   Category: {
     type: String,
     enum: {
-      values: ["cafes", "fast food", "casual restaurant", "pizzerias"],
+      values: ["cafe", "fast food", "casual restaurant", "pizzerias"],
       message: "{VALUE} is not supported",
     },
   },
@@ -20,4 +20,20 @@ const reviewSchema = new mongoose.Schema({
     required: [true, "Please provide review"],
     minlength: 10,
   },
+  Author: {
+    type: String,
+    required: [true, "Please provide name"],
+    maxlength: 50,
+    minlength: 3,
+  },
+  Star: {
+    type: Number,
+    required: [true, "Please provide review"],
+    enum: {
+      values: [1, 2, 3, 4, 5],
+      message: "{VALUE} is not supported",
+    },
+  },
 });
+
+module.exports = mongoose.model("Review", reviewSchema);
