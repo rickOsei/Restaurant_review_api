@@ -7,8 +7,9 @@ const {
   deleteReview,
   createReview,
 } = require("../controllers/review_controller");
+const auth = require("../middlewares/authentication");
 
-router.route("/").post(createReview).get(getAllReviews);
+router.route("/").post(createReview).get(auth, getAllReviews);
 router
   .route("/:id")
   .get(getSingleReview)

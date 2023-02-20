@@ -27,7 +27,6 @@ const updateReview = async (req, res) => {
 };
 const deleteReview = async (req, res) => {
   const { id: reviewID } = req.params;
-  console.log(req.params);
   const review = await reviewModel.findByIdAndDelete({ _id: reviewID });
   res.status(StatusCodes.OK).json({ success: true, data: review });
 };

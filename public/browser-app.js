@@ -4,6 +4,7 @@ const formDOM = document.querySelector(".task-form");
 const taskInputNameDOM = document.querySelector(".task-input-name");
 const taskInputEmailDOM = document.querySelector(".task-input-email");
 const taskInputPasswordDOM = document.querySelector(".task-input-password");
+const clickie = document.querySelector(".click");
 
 formDOM.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -22,4 +23,9 @@ formDOM.addEventListener("submit", async (e) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+clickie.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.open("http://localhost:3000/api/v1/auth/google");
 });

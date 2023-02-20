@@ -4,7 +4,7 @@ const { BadRequestError, UnauthenticatedError } = require("../errors");
 
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   const user = await authModel.create({ ...req.body });
   const token = user.createJWT();
   res.status(StatusCodes.OK).json({ user: { name: user.name }, token });
@@ -27,4 +27,4 @@ const loginUser = async (req, res) => {
   res.status(StatusCodes.OK).json({ user: { name: user.name }, token });
 };
 
-module.exports = { loginUser, registerUser };
+module.exports = { loginUser, registerUser, loginGoogleUser };
