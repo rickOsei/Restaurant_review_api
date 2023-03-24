@@ -19,7 +19,9 @@ router.route("/google").get(
 // google auth redirect
 router.get(
   "/google/redirect",
-  passport.authenticate("google", { failureRedirect: "http://localhost:3001" }),
+  passport.authenticate("google", {
+    failureRedirect: "https://restaurant-review-brown.vercel.app/",
+  }),
   function (req, res) {
     // Successful authentication, redirect secrets.
     console.log(req.user);
@@ -37,7 +39,7 @@ router.get(
       { expiresIn: process.env.JWT_EXPIRATION }
     );
 
-    res.redirect(`http://localhost:3001?token=${token}`);
+    res.redirect(`https://restaurant-review-brown.vercel.app/?token=${token}`);
     // console.log(req.user.token);
   }
 );

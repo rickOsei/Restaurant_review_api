@@ -31,7 +31,8 @@ passport.use(
   new GoogleStrategy(
     {
       // options for the google strategy
-      callbackURL: "http://localhost:3000/api/v1/auth/google/redirect",
+      callbackURL:
+        "https://restaurant-review-oct1.onrender.com/api/v1/auth/google/redirect",
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       passReqToCallback: true,
