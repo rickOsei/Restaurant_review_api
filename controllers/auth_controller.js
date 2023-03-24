@@ -27,4 +27,5 @@ const loginUser = async (req, res) => {
   res.status(StatusCodes.OK).json({ user: { name: user.name }, token });
 };
 
-module.exports = { loginUser, registerUser, loginGoogleUser };
+module.exports = { loginUser, registerUser };
+// module.exports = { loginUser, registerUser, loginGoogleUser };
