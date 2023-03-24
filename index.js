@@ -4,8 +4,8 @@ const express = require("express");
 const server = express();
 const cors = require("cors");
 const passportSetup = require("./config/passport-setup");
-// const cookieSession = require("cookie-session");
-const session = require("express-session");
+const cookieSession = require("cookie-session");
+// const session = require("express-session");
 const passport = require("passport");
 
 // routes
@@ -15,25 +15,25 @@ const notFound = require("./middlewares/not_found");
 const errorHandler = require("./middlewares/error_handler");
 // const auth = require("./middlewares/authentication");
 
-// server.use(
-//   cookieSession({
-//     maxAge: 24 * 60 * 60 * 1000,
-//     keys: [process.env.COOKIE_KEY],
-//   })
-// );
-
 server.use(
-  session({
-    secret: process.env.COOKIE_KEY,
-    resave: false,
-    saveUninitialized: false,
+  cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [process.env.COOKIE_KEY],
   })
 );
 
-if (server.get("env") === "production") {
-  // Serve secure cookies, requires HTTPS
-  session.Cookie.secure = true;
-}
+// server.use(
+//   session({
+//     secret: process.env.COOKIE_KEY,
+//     resave: false,
+//     saveUninitialized: false,
+//   })
+// );
+
+// if (server.get("env") === "production") {
+//   // Serve secure cookies, requires HTTPS
+//   session.Cookie.secure = true;
+// }
 
 // initialize passport
 server.use(passport.initialize());
