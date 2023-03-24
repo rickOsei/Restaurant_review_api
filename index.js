@@ -30,10 +30,10 @@ server.use(
   })
 );
 
-if (server.get("env") === "production") {
-  // Serve secure cookies, requires HTTPS
-  session.cookie.secure = true;
-}
+// if (server.get("env") === "production") {
+//   // Serve secure cookies, requires HTTPS
+//   session.cookie.secure = true;
+// }
 
 // initialize passport
 server.use(passport.initialize());
